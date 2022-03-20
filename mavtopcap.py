@@ -17,7 +17,7 @@ class pcap(object):
     """
        Used under the terms of GNU GPL v3.
        Original author: Neale Pickett
-       see http://dirtbags.net/py-pcap.html
+       see https://github.com/dirtbags/py-pcap
     """
     _MAGIC = 0xA1B2C3D4
     def __init__(self, stream, mode='rb', snaplen=65535, linktype=1):
@@ -78,7 +78,6 @@ class pcap(object):
         hdr = struct.pack(self._endian + 'IIII', tv_sec, tv_usec, length, len(datum))
         self.stream.write(hdr)
         self.stream.write(datum)
-        # self.stream.write(datum.encode())
 
     def __iter__(self):
         while True:
